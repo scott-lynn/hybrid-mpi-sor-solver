@@ -15,7 +15,7 @@ To manage domain decomposition across distributed memory, the solver utilizes no
 Standard SOR algorithms contain inherent data dependencies that prevent thread-level parallelization. To solve this, a red-black spatial ordering scheme was implemented. By decoupling the grid into independent sub-domains, the inner computational loops are safely parallelized across shared-memory threads using OpenMP without race conditions.
 
 ### 3. Hardware & NUMA-Aware Execution
-To optimize for the specific chiplet architecture of AMD EPYC processors, the execution scripts explicitly manage thread affinity and memory locality. By utilizing `OMP_PROC_BIND=close`, `OMP_PLACES=cores`, and explicit socket mapping (`--map-by socket:PE=$t`), the execution environment prevents thread migration across Core Complex Die (CCD) boundaries, minimizing L3 cache misses and cross-socket latency.
+To optimize for the specific chiplet architecture of AMD EPYC processors, the execution scripts explicitly manage thread affinity and memory locality. By utilising `OMP_PROC_BIND=close`, `OMP_PLACES=cores`, and explicit socket mapping (`--map-by socket:PE=$t`), the execution environment prevents thread migration across Core Complex Die (CCD) boundaries, minimizing L3 cache misses and cross-socket latency.
 
 ## Repository Structure
 

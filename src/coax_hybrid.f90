@@ -334,7 +334,7 @@ contains
                     !$OMP END PARALLEL DO
                 end if
 
-                ! B. Bulk Update
+                ! Bulk Update
                 if (nr_local >= 2) then
                     !$OMP PARALLEL DO & 
                     !$OMP PRIVATE(k, k_global, inv_r_factor, i, phi_old, phi_new, diff) &
@@ -375,7 +375,7 @@ contains
                 call MPI_Waitall(4, requests, statuses, ierr)
 
 
-                ! C. Halo Update
+                ! Halo Update
                 !$OMP PARALLEL DO & 
                 !$OMP PRIVATE(k, k_global, inv_r_factor, i, phi_old, phi_new, diff) &
                 !$OMP REDUCTION(max: local_diff)

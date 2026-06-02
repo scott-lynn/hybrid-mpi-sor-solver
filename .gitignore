@@ -1,0 +1,8 @@
+# Ignore compiled executables and module files
+coax_hybrid
+*.mod
+*.o
+
+# Ignore slurm output logs
+*.log
+scaling_*.log

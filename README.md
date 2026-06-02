@@ -4,7 +4,7 @@ This repository contains a high-performance, hybrid-parallelized (MPI + OpenMP) 
 
 This project was developed as part of the graduate Scientific Supercomputing module at the University of York.
 
-## Key Architectural Features
+## Key Features
 
 This solver is built around three core systems engineering principles to maximise parallel efficiency and bypass hardware latency cliffs:
 

@@ -24,7 +24,7 @@ To optimize for the specific chiplet architecture of AMD EPYC processors, the ex
 
 ## Compilation & Execution
 
-The code is designed to be compiled with the GNU Fortran compiler, leveraging `-O3` for automatic vectorization and loop unrolling.
+The code is designed to be compiled with the GNU Fortran compiler, leveraging `-O3` for automatic vectorisation and loop unrolling.
 
 ```bash
 # Compile the hybrid solver

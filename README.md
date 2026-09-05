@@ -1,6 +1,6 @@
 # Hybrid MPI+OpenMP SOR Solver for Coaxial Potentials
 
-This repository contains a high-performance, hybrid-parallelized (MPI + OpenMP) Successive Over-Relaxation (SOR) solver, developed in modern Fortran. The codebase was designed to perform rigorous strong and weak scaling analysis on AMD EPYC Milan architectures, scaling execution to 96 processing elements.
+This repository contains a high-performance, hybrid-parallelised (MPI + OpenMP) Successive Over-Relaxation (SOR) solver, developed in modern Fortran. The codebase was designed to perform rigorous strong and weak scaling analysis on AMD EPYC Milan architectures, scaling execution to 96 processing elements.
 
 This project was developed as part of the graduate Scientific Supercomputing module at the University of York.
 
@@ -9,13 +9,13 @@ This project was developed as part of the graduate Scientific Supercomputing mod
 This solver is built around three core systems engineering principles to maximise parallel efficiency and bypass hardware latency cliffs:
 
 ### 1. Asynchronous Halo Exchange (MPI)
-To manage domain decomposition across distributed memory, the solver utilizes non-blocking MPI communication (`MPI_Isend` / `MPI_Irecv`). This architecture allows the solver to actively overlap network communication latency with bulk computation, ensuring the CPU remains saturated during cross-node data transfers.
+To manage domain decomposition across distributed memory, the solver utilises non-blocking MPI communication (`MPI_Isend` / `MPI_Irecv`). This architecture allows the solver to actively overlap network communication latency with bulk computation, ensuring the CPU remains saturated during cross-node data transfers.
 
 ### 2. Red-Black Checkerboard Ordering (OpenMP)
-Standard SOR algorithms contain inherent data dependencies that prevent thread-level parallelization. To solve this, a red-black spatial ordering scheme was implemented. By decoupling the grid into independent sub-domains, the inner computational loops are safely parallelized across shared-memory threads using OpenMP without race conditions.
+Standard SOR algorithms contain inherent data dependencies that prevent thread-level parallelisation. To solve this, a red-black spatial ordering scheme was implemented. By decoupling the grid into independent sub-domains, the inner computational loops are safely parallelised across shared-memory threads using OpenMP without race conditions.
 
 ### 3. Hardware & NUMA-Aware Execution
-To optimize for the specific chiplet architecture of AMD EPYC processors, the execution scripts explicitly manage thread affinity and memory locality. By utilising `OMP_PROC_BIND=close`, `OMP_PLACES=cores`, and explicit socket mapping (`--map-by socket:PE=$t`), the execution environment prevents thread migration across Core Complex Die (CCD) boundaries, minimising L3 cache misses and cross-socket latency.
+To optimizs for the specific chiplet architecture of AMD EPYC processors, the execution scripts explicitly manage thread affinity and memory locality. By utilising `OMP_PROC_BIND=close`, `OMP_PLACES=cores`, and explicit socket mapping (`--map-by socket:PE=$t`), the execution environment prevents thread migration across Core Complex Die (CCD) boundaries, minimising L3 cache misses and cross-socket latency.
 
 ## Repository Structure
 

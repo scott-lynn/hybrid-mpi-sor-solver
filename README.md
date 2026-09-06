@@ -2,6 +2,8 @@
 
 This repository contains a high-performance, hybrid-parallelised (MPI + OpenMP) Successive Over-Relaxation (SOR) solver, developed in modern Fortran. It computes the 2D electrostatic potential distribution within a coaxial conductor to millivolt accuracy. The codebase was designed to perform rigorous strong and weak scaling analysis on AMD EPYC Milan architectures, specifically the Viking 2 supercomputer, scaling execution to 96 processing elements.
 
+Click ![here](docs/analysis.pdf) to read the full performance analysis and scaling report.
+
 ## Key Features
 
 This solver is built around four core systems engineering principles to maximise parallel efficiency and bypass hardware latency cliffs:

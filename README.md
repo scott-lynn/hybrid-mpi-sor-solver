@@ -1,8 +1,6 @@
 # Hybrid MPI+OpenMP SOR Solver for Coaxial Potentials
 
-This repository contains a high-performance, hybrid-parallelised (MPI + OpenMP) Successive Over-Relaxation (SOR) solver, developed in modern Fortran. It computes the 2D electrostatic potential distribution within a coaxial conductor to millivolt accuracy. The codebase was designed to perform rigorous strong and weak scaling analysis on AMD EPYC Milan architectures, scaling execution to 96 processing elements.
-
-This project was developed as part of the graduate Scientific Supercomputing module at the University of York.
+This repository contains a high-performance, hybrid-parallelised (MPI + OpenMP) Successive Over-Relaxation (SOR) solver, developed in modern Fortran. It computes the 2D electrostatic potential distribution within a coaxial conductor to millivolt accuracy. The codebase was designed to perform rigorous strong and weak scaling analysis on AMD EPYC Milan architectures, specifically the Viking 2 supercomputer, scaling execution to 96 processing elements.
 
 ## Key Features
 
